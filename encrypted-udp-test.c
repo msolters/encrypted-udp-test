@@ -58,12 +58,12 @@ struct ctimer udp_send_timer;
 void
 init_udp()
 {
-  // (1) Define Destination IP: bbbb::1/64
+	// (1) Define Destination IP: bbbb::1/64
 	uip_ip6addr(&server_ipaddr, 0xbbbb, 0, 0, 0, 0, 0, 0, 0x1);
 
-  // (2) Establish UDP connection with border router
-  udp_client_conn = udp_new(&server_ipaddr, UIP_HTONS(UDP_PORT), NULL);
-  udp_bind(udp_client_conn, UIP_HTONS(UDP_PORT));
+	// (2) Establish UDP connection with border router
+	udp_client_conn = udp_new(&server_ipaddr, UIP_HTONS(UDP_PORT), NULL);
+	udp_bind(udp_client_conn, UIP_HTONS(UDP_PORT));
 }
 
 /**
@@ -108,7 +108,7 @@ AUTOSTART_PROCESSES( &udp_sender_th );
 
 PROCESS_THREAD(udp_sender_th, ev, data)
 {
-  PROCESS_BEGIN();
+	PROCESS_BEGIN();
 
 	//	(1)	Initialize UDP connection
 	init_udp();
